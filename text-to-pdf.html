@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to PDF - My Handy Tools</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="calculator.html">Calculator</a></li>
+            <li><a href="text-to-pdf.html">Text to PDF</a></li>
+            <!-- Additional nav items can be added here -->
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Text to PDF</h1>
+    </header>
+
+    <main>
+        <div class="text-to-pdf">
+            <textarea id="userText" placeholder="Enter your text here..."></textarea>
+            <button onclick="generatePDF()">Save as PDF</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 My Handy Tools</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
