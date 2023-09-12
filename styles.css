@@ -261,3 +261,16 @@ button {
         margin-top: 10px;
     }
 }
+
+/* Product Cost Estimator Styles */
+@media (max-width: 768px) {
+    .nav-list, .estimator, header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.estimator label, 
+.estimator input {
+    margin-bottom: 10px;  /* Add spacing below each item */
+}

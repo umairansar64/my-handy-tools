@@ -98,3 +98,40 @@ function calculateDaysDifference() {
     document.getElementById("mdResult").value = `${(yearsDifference * 12) + monthsDifference} Months, ${dateDifference} Days`;
     document.getElementById("dResult").value = `${daysDifference} Days`;
 }
+
+// Product cost estimator
+
+function calculateEstimate() {
+    const vatRate = parseFloat(document.getElementById("vat").value) / 100;
+    const deliveryCharge = parseFloat(document.getElementById("deliveryCharge").value);
+    const pricePerUnit = parseFloat(document.getElementById("pricePerUnit").value);
+    const budget = parseFloat(document.getElementById("budget").value);
+    const numProducts = parseInt(document.getElementById("numProducts").value);
+
+    const resultField = document.getElementById("result");
+
+    if (!pricePerUnit) {
+        alert("Error: Please enter a valid Price Per Unit.");
+        return;
+    }
+
+    if (!vatRate && vatRate !== 0) {
+        alert("Error: Please enter a valid VAT Rate.");
+        return;
+    }
+
+    if (!deliveryCharge && deliveryCharge !== 0) {
+        alert("Error: Please enter a valid Delivery Charge.");
+        return;
+    }
+
+    if (budget) {
+        const numOfProducts = Math.floor((budget - deliveryCharge) / (pricePerUnit + (pricePerUnit * vatRate)));
+        resultField.value = `${numOfProducts} Products`;
+    } else if (numProducts) {
+        const totalCost = (((pricePerUnit * numProducts) + deliveryCharge) * (1 + vatRate));
+        resultField.value = `£${totalCost.toFixed(2)}.`;
+    } else {
+        alert("Error: Please enter either a Budget or Number of Products to estimate.");
+    }
+}
