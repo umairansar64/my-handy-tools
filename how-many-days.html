@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text to PDF - My Handy Tools</title>
+    <title>How Many Days - My Handy Tools</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </head>
 
 <body>
@@ -22,18 +21,29 @@
             <li><a href="text-to-pdf.html">Text to PDF</a></li>
             <li><a href="proportion.html">Proportion</a></li>
             <li><a href="how-many-days.html">Calculate Days</a></li>
-            <!-- Additional nav items can be added here -->
         </ul>
     </nav>
 
     <header>
-        <h1>Text to PDF</h1>
+        <h1>How Many Days</h1>
     </header>
 
     <main>
-        <div class="text-to-pdf">
-            <textarea id="userText" placeholder="Enter your text here..."></textarea>
-            <button onclick="generatePDF()">Save as PDF</button>
+        <div class="days-calculator">
+            <p>Enter dates in the format: DD/MM/YYYY</p>
+            <input type="text" id="startDate" placeholder="Start Date">
+            <input type="text" id="endDate" placeholder="End Date">
+            <button id="calc-days-button" onclick="calculateDaysDifference()">Calculate</button>
+            <div class="result-container">
+                <label for="ymdResult">Years, Months, Days:</label>
+                <input type="text" id="ymdResult" readonly>
+                
+                <label for="mdResult">Months, Days:</label>
+                <input type="text" id="mdResult" readonly>
+                
+                <label for="dResult">Days:</label>
+                <input type="text" id="dResult" readonly>
+            </div>
         </div>
     </main>
 

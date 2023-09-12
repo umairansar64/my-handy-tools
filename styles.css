@@ -228,3 +228,19 @@ button {
 .result-container {
     margin-top: 20px;  /* Margin above the result field */
 }
+
+/* How many Days Page Styles */
+
+.days-calculator button {
+    background-color: #007BFF; /* Blue background color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 15px; /* Margin below the button for spacing */
+}
+
+.days-calculator button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
