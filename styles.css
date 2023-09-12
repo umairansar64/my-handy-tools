@@ -244,3 +244,20 @@ button {
 .days-calculator button:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
+
+@media (max-width: 768px) {
+    .nav-list, .days-calculator, header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .result-container label, 
+    .result-container input {
+        display: block;  /* Force each label and input to take up the full width and move to a new line */
+        margin-bottom: 10px;  /* Add spacing between each item */
+    }
+
+    #endDate {
+        margin-top: 10px;
+    }
+}
