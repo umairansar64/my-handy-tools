@@ -166,6 +166,15 @@ button.zero {
     }
 }
 
+/* Mobile Responsive Adjustments */
+
+@media (max-width: 768px) {
+    .container, .nav-list, .proportion-calculator, .calculator, header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
 /* Text to PDF Styles */
 
 .text-to-pdf {
@@ -191,4 +200,31 @@ textarea {
 
 button {
     margin-top: 10px;
+}
+
+/* Proportion Calculator Styles */
+
+.proportion-calculator button {
+    background-color: #007BFF;  /* Blue background color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 15px;  /* Margin below the button */
+}
+
+.proportion-calculator button:hover {
+    background-color: #0056b3;  /* Darker blue on hover */
+}
+
+.proportion-grid > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.result-container {
+    margin-top: 20px;  /* Margin above the result field */
 }

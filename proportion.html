@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text to PDF - My Handy Tools</title>
+    <title>Proportion - My Handy Tools</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </head>
 
 <body>
@@ -26,13 +25,23 @@
     </nav>
 
     <header>
-        <h1>Text to PDF</h1>
+        <h1>Proportion Calculator</h1>
     </header>
 
     <main>
-        <div class="text-to-pdf">
-            <textarea id="userText" placeholder="Enter your text here..."></textarea>
-            <button onclick="generatePDF()">Save as PDF</button>
+        <div class="proportion-calculator">
+            <div class="proportion-grid">
+                <input type="text" id="aValue" value="x" readonly>
+                <input type="text" id="bValue">
+                <div>=</div>
+                <input type="text" id="cValue">
+                <input type="text" id="dValue">
+            </div>
+            <button onclick="calculateProportion()">Calculate</button>
+            <div class="result-container">
+                <label for="result">Result:</label>
+                <input type="text" id="result" readonly>
+            </div>
         </div>
     </main>
 

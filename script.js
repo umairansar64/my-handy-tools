@@ -43,3 +43,24 @@ function generatePDF() {
 
     doc.save('downloaded-text.pdf');
 }
+
+// Proportion Controls
+
+function calculateProportion() {
+    // Get user input values
+    const bValue = parseFloat(document.getElementById("bValue").value);
+    const cValue = parseFloat(document.getElementById("cValue").value);
+    const dValue = parseFloat(document.getElementById("dValue").value);
+
+    // Check if the values are valid numbers
+    if (isNaN(bValue) || isNaN(cValue) || isNaN(dValue)) {
+        alert("Please enter valid numbers in the fields.");
+        return;
+    }
+
+    // Calculate the proportion value for x (a)
+    const aValue = (bValue * cValue) / dValue;
+
+    // Display the result
+    document.getElementById("result").value = aValue;
+}
