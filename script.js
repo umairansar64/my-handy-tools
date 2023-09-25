@@ -135,3 +135,37 @@ function calculateEstimate() {
         alert("Error: Please enter either a Budget or Number of Products to estimate.");
     }
 }
+
+// Amazon Retail Price Calculator
+
+function calculateAmazon() {
+    const buyingPrice = parseFloat(document.getElementById("buyingPrice").value);
+    const amazonFbaFee = parseFloat(document.getElementById("amazonFbaFee").value);
+    const retailPrice = parseFloat(document.getElementById("retailPrice").value);
+    const netProfit = parseFloat(document.getElementById("netProfit").value);
+
+    const resultField = document.getElementById("result");
+
+    if (!buyingPrice && buyingPrice !== 0) {
+        alert("Error: Please enter a valid Buying Price.");
+        return;
+    }
+
+    if (!amazonFbaFee && amazonFbaFee !== 0) {
+        alert("Error: Please enter a valid Amazon FBA Fee.");
+        return;
+    }
+
+    if (retailPrice || retailPrice === 0) {
+        const calculatedNetProfit = retailPrice - (buyingPrice + ((amazonFbaFee + (retailPrice * 0.153)) * 1.2));
+        resultField.value = `Net Profit: £${calculatedNetProfit.toFixed(2)}`;
+    } else if (netProfit || netProfit === 0) {
+        // Rearrange the formula to find Retail Price
+        // Net profit = Retail Price - (Buying Price + ((Amazon FBA fee + (Retail Price * 0.153)) * 1.2))
+        // (Net profit + (Buying Price + Amazon FBA fee * 1.2)) / (1 - 0.153 * 1.2) = Retail Price
+        const calculatedRetailPrice = (netProfit + (buyingPrice + amazonFbaFee * 1.2)) / (1 - 0.153 * 1.2);
+        resultField.value = `Retail Price: £${calculatedRetailPrice.toFixed(2)}`;
+    } else {
+        alert("Error: Please enter either Retail Price or Net Profit.");
+    }
+}

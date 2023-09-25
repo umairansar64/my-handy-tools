@@ -274,3 +274,19 @@ button {
 .estimator input {
     margin-bottom: 10px;  /* Add spacing below each item */
 }
+
+/* Amazon Calculator styles */
+
+.amazon-calculator label,
+.amazon-calculator input {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .nav-list,
+    .amazon-calculator,
+    header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
