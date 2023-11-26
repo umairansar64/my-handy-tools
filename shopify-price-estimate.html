@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Retail Price Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .calculator {
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Retail Price Calculator</h2>
+        <label for="wholesale">Wholesale Price (£):</label>
+        <input type="number" id="wholesale" placeholder="Enter Wholesale Price">
+
+        <label for="delivery">Delivery Charge (£):</label>
+        <input type="number" id="delivery" placeholder="Enter Delivery Charge">
+
+        <button id="calculate">Calculate</button>
+
+        <h3>Results:</h3>
+        <p>Retail Price (R): <span id="retail-price">-</span> £</p>
+        <p>Compare Price (C): <span id="compare-price">-</span> £</p>
+    </div>
+
+    <script>
+        document.getElementById('calculate').addEventListener('click', function() {
+            var wholesale = parseFloat(document.getElementById('wholesale').value);
+            var delivery = parseFloat(document.getElementById('delivery').value);
+
+            var retail = calculateRetail(wholesale, delivery);
+            var compare = retail / 0.7;
+
+            document.getElementById('retail-price').textContent = retail.toFixed(2);
+            document.getElementById('compare-price').textContent = compare.toFixed(2);
+        });
+
+        function calculateRetail(wholesale, delivery) {
+            var retail = (wholesale + delivery) * 2.5;
+
+            // Condition to adjust the retail price
+            if (retail < 10 && delivery < 2.5) {
+                retail = (wholesale + 0.50) * 2.5;
+            }
+
+            return retail;
+        }
+    </script>
+</body>
+</html>
