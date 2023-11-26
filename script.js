@@ -169,3 +169,21 @@ function calculateAmazon() {
         alert("Error: Please enter either Retail Price or Net Profit.");
     }
 }
+
+// Shopify Cost Calculator
+
+function calculateRetailPrice() {
+    const wholesalePrice = parseFloat(document.getElementById("wholesalePrice").value);
+    const deliveryCharge = parseFloat(document.getElementById("deliveryCharge").value);
+
+    let retailPrice = (wholesalePrice + deliveryCharge) * 2.5;
+    let comparePrice = retailPrice / 0.7;
+
+    if (retailPrice < 10 && deliveryCharge < 2.5) {
+        retailPrice = (wholesalePrice + 0.5) * 2.5;
+        comparePrice = retailPrice / 0.7;
+    }
+
+    document.getElementById("retailPrice").value = retailPrice.toFixed(2);
+    document.getElementById("comparePrice").value = comparePrice.toFixed(2);
+}

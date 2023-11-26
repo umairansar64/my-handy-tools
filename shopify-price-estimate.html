@@ -1,82 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Retail Price Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .calculator {
-            width: 300px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
-        }
-
-        input[type="number"] {
-            width: 100%;
-            padding: 8px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopify Price Estimate - My Handy Tools</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="calculator">
-        <h2>Retail Price Calculator</h2>
-        <label for="wholesale">Wholesale Price (£):</label>
-        <input type="number" id="wholesale" placeholder="Enter Wholesale Price">
+    <nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="calculator.html">Calculator</a></li>
+            <li><a href="text-to-pdf.html">Text to PDF</a></li>
+            <li><a href="proportion.html">Proportion</a></li>
+            <li><a href="how-many-days.html">How Many Days</a></li>
+            <li><a href="product-cost-estimator.html">Cost Estimator</a></li>
+            <li><a href="amazon-calculator.html">Amazon Calculator</a></li>
+            <li><a href="shopify-price-estimate.html">Shopify Price Estimate</a></li>
+            <!-- Additional nav items can be added here -->
+        </ul>
+    </nav>
 
-        <label for="delivery">Delivery Charge (£):</label>
-        <input type="number" id="delivery" placeholder="Enter Delivery Charge">
+    <header>
+        <h1>Retail Price Calculator</h1>
+    </header>
 
-        <button id="calculate">Calculate</button>
+    <main>
+        <div class="retail-calculator">
+            <label for="wholesalePrice">Wholesale Price (£)</label>
+            <input type="number" id="wholesalePrice" placeholder="Enter wholesale price"><br>
+            
+            <label for="deliveryCharge">Delivery Charge (£)</label>
+            <input type="number" id="deliveryCharge" placeholder="Enter delivery charge"><br>
 
-        <h3>Results:</h3>
-        <p>Retail Price (R): <span id="retail-price">-</span> £</p>
-        <p>Compare Price (C): <span id="compare-price">-</span> £</p>
-    </div>
+            <button onclick="calculateRetailPrice()" style="background-color: #007BFF;">Calculate</button><br>
 
-    <script>
-        document.getElementById('calculate').addEventListener('click', function() {
-            var wholesale = parseFloat(document.getElementById('wholesale').value);
-            var delivery = parseFloat(document.getElementById('delivery').value);
-
-            var retail = calculateRetail(wholesale, delivery);
-            var compare = retail / 0.7;
-
-            document.getElementById('retail-price').textContent = retail.toFixed(2);
-            document.getElementById('compare-price').textContent = compare.toFixed(2);
-        });
-
-        function calculateRetail(wholesale, delivery) {
-            var retail = (wholesale + delivery) * 2.5;
-
-            // Condition to adjust the retail price
-            if (retail < 10 && delivery < 2.5) {
-                retail = (wholesale + 0.50) * 2.5;
-            }
-
-            return retail;
-        }
-    </script>
+            <div class="result-container">
+                <label for="retailPrice">Retail Price (£):</label>
+                <input type="text" id="retailPrice" readonly><br>
+                
+                <label for="comparePrice">Compare Price (£):</label>
+                <input type="text" id="comparePrice" readonly>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 My Handy Tools</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>

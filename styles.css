@@ -290,3 +290,55 @@ button {
         padding-right: 15px;
     }
 }
+
+/*Shopify Cost Calculator Styles*/
+
+.retail-calculator {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.retail-calculator label, 
+.retail-calculator input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.retail-calculator button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.retail-calculator button:hover {
+    background-color: #0056b3;
+}
+
+.result-container {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .retail-calculator, .result-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
