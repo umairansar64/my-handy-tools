@@ -37,7 +37,7 @@ function generatePDF() {
 
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
-    
+
     const splitText = doc.splitTextToSize(content, 180);
     doc.text(splitText, 10, 10);
 
@@ -176,13 +176,13 @@ function calculateRetailPrice() {
     const wholesalePrice = parseFloat(document.getElementById("wholesalePrice").value);
     const deliveryCharge = parseFloat(document.getElementById("deliveryCharge").value);
 
-    let retailPrice = (wholesalePrice + deliveryCharge) * 2.5;
-    let comparePrice = retailPrice / 0.7;
+    let retailPrice = (wholesalePrice + deliveryCharge + 0.25)/0.58;
 
-    if (retailPrice < 10 && deliveryCharge < 2.5) {
-        retailPrice = (wholesalePrice + 0.5) * 2.5;
-        comparePrice = retailPrice / 0.7;
-    }
+    //let comparePrice = retailPrice / 0.7;
+    // if (retailPrice < 10 && deliveryCharge < 2.5) {
+    //     retailPrice = (wholesalePrice + 0.5) * 2.5;
+    //     comparePrice = retailPrice / 0.7;
+    // }
 
     document.getElementById("retailPrice").value = retailPrice.toFixed(2);
     document.getElementById("comparePrice").value = comparePrice.toFixed(2);
